@@ -22,7 +22,7 @@ Este repositório tem como objetivo armazenar e organizar todos os códigos dese
 - **Instruções de Instalação**:
   1. Clone o repositório:
    ```textplain
-  git clone https://github.com/thalyssonDev/POO-ADS.git
+  https://github.com/thalyssonDEV/programacao-orientada-a-objetos.git
    ```
   3. Navegue até a pasta do projeto desejado: `cd POO-ADS/Projeto1`
   4. Instale as dependências (se necessário): `npm install`
