@@ -2,7 +2,7 @@
 
 Repositório de códigos relacionados à disciplina de Programação Orientada a Objetos do curso de Análise e Desenvolvimento de Sistemas!
 
-## 📚 Sobre o Projeto
+## 📚 Sobre o Repositório
 
 Este repositório tem como objetivo armazenar e organizar todos os códigos desenvolvidos durante as aulas de POO, utilizando TypeScript. Cada pasta neste repositório representará um projeto diferente, abordando diversos conceitos de POO, como:
 
