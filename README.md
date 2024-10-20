@@ -24,9 +24,10 @@ Este repositório tem como objetivo armazenar e organizar todos os códigos dese
    ```textplain
   https://github.com/thalyssonDEV/programacao-orientada-a-objetos.git
    ```
-  3. Navegue até a pasta do projeto desejado: `cd POO-ADS/Projeto1`
-  4. Instale as dependências (se necessário): `npm install`
+  3. Navegue até a pasta do projeto desejado: `cd programacao-orientada-a-objetos/nome_do_projeto...`
+  4. Instale as dependências (se necessário): `npm install...`
   5. Execute o projeto:
   ```textplain
-  ts-node src/main.ts
+  tsc main.ts
+  node main.ts
   ```
