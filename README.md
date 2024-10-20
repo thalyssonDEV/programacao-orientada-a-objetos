@@ -29,5 +29,5 @@ Este repositório tem como objetivo armazenar e organizar todos os códigos dese
   5. Execute o projeto:
   ```textplain
   tsc main.ts
-  node main.ts
+  node main.js
   ```
