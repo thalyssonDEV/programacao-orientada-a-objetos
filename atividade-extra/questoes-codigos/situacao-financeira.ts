@@ -6,24 +6,24 @@
 import { question } from 'readline-sync'
 
 class SituacaoFinanceira {
-  private valorCreditos: number;
-  private valorDebitos: number;
+  private valorCredito: number;
+  private valorDebito: number;
 
-  constructor(valorCreditos: number, valorDebitos: number) {
-    this.valorCreditos = valorCreditos;
-    this.valorDebitos = valorDebitos;
+  constructor(valorCredito: number, valorDebito: number) {
+    this.valorCredito = valorCredito;
+    this.valorDebito = valorDebito;
   }
 
   public calcularSaldo(): number {
-    return Math.abs(this.valorCreditos - this.valorDebitos);
+    return Math.abs(this.valorCredito - this.valorDebito);
   }
 }
 
 function main() {
-  const valorCreditos = Number(question("Digite o Valor de Crédito: "));
-  const valorDebitos = Number(question("Digite o Valor de Débito: "));
+  const valorCredito = Number(question("Digite o Valor de Crédito: "));
+  const valorDebito = Number(question("Digite o Valor de Débito: "));
 
-  const situacaoFinanceira = new SituacaoFinanceira(valorCreditos, valorDebitos);
+  const situacaoFinanceira = new SituacaoFinanceira(valorCredito, valorDebito);
 
   console.log(`\nDiferença de Saldo: ${situacaoFinanceira.calcularSaldo().toFixed(2)} Reais`);
 }
