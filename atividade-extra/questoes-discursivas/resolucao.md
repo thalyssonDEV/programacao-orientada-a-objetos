@@ -114,7 +114,6 @@ Além dos já citados, podemos identificar os seguintes objetos em um sistema de
      - nome
      - número da camisa
      - posição (atacante, zagueiro, etc.)
-     - habilidade
      - cartões (amarelo, vermelho)
      - estatísticas (gols, assistências)
    - **Métodos:**
