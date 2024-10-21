@@ -13,11 +13,11 @@ class Retangulo {
     this.largura = largura;
   }
 
-  public calcularArea() {
+  public calcularArea(): number {
     return this.altura * this.largura;
   }
 
-  public calcularPerimetro() {
+  public calcularPerimetro(): number {
     return (this.altura * 2) + (this.largura * 2);
   }
 }
