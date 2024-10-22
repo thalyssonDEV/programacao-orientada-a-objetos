@@ -20,7 +20,7 @@ var Personagem_1 = require("../classes/Personagem");
 var Arqueiro = /** @class */ (function (_super) {
     __extends(Arqueiro, _super);
     function Arqueiro(nome) {
-        return _super.call(this, nome, 1500, 500, 10) || this;
+        return _super.call(this, nome, 1500, 250, 10) || this;
     }
     Object.defineProperty(Arqueiro.prototype, "classeNome", {
         get: function () {
