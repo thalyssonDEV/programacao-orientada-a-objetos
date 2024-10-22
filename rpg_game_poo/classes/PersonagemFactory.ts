@@ -4,6 +4,7 @@ import { Guerreiro } from '../sub_classes/Guerreiro';
 import { Arqueiro } from '../sub_classes/Arqueiro';
 import { print } from '../utils/utils';
 
+// Classe responsável por instanciar apenas as classes escolhidaas pelos jogadores, essa instância é feita na 'main()' com o método estático 'CriarPersonagem'
 export class PersonagemFactory {
     static mostrarClasses(): void {
       print(`\nEscolha Uma Classe De Personagem`);

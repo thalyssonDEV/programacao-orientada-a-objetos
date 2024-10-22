@@ -5,6 +5,7 @@ var Mago_1 = require("../sub_classes/Mago");
 var Guerreiro_1 = require("../sub_classes/Guerreiro");
 var Arqueiro_1 = require("../sub_classes/Arqueiro");
 var utils_1 = require("../utils/utils");
+// Classe responsável por instanciar apenas as classes escolhidaas pelos jogadores, essa instância é feita na 'main()' com o método estático 'CriarPersonagem'
 var PersonagemFactory = /** @class */ (function () {
     function PersonagemFactory() {
     }

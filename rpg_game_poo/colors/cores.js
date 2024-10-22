@@ -1,4 +1,5 @@
 "use strict";
+// Arquivo que contém os códigos ANSCI das cores para colorir variáveis em Typescript
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fundo = exports.cores = void 0;
 var cores;

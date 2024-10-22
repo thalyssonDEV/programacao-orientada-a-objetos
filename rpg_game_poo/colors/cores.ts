@@ -1,3 +1,5 @@
+// Arquivo que contém os códigos ANSCI das cores para colorir variáveis em Typescript
+
 export enum cores {
     reset = '\x1b[0m',
     preto = '\x1b[30m',

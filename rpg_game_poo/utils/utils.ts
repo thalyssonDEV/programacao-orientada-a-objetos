@@ -14,16 +14,17 @@ export function randomInt(min: number, max: number): number {
 }
 
 export function awaitInput(): void {
-    input(`\n${cores.cianoBrilhanteNegrito}Pressione ENTER para Continuar...${cores.reset}\n`);
-    clear();
+    question(`\n${cores.cianoBrilhanteNegrito}Pressione ENTER para Continuar...${cores.reset}\n`);
+    console.clear();
+}
+
+export function awaitInputMessage(message: string): void {
+    question(`\n${cores.cianoBrilhanteNegrito}${message}${cores.reset}\n`);
+    console.clear();
 }
 
 export function input(prompt: string): string {
     return question(prompt);
-}
-
-export function printOneLine(...args: any[]): void {
-    process.stdout.write(args.join(' '));
 }
 
 export function printSlow(text: any) {
@@ -31,17 +32,13 @@ export function printSlow(text: any) {
     let index = 0;
 
     function printChar() {
-        if (index < len(text)) {
-            printOneLine(text[index]);
+        if (index < text.lenght) {
+            process.stdout.write(text[index]);
             index++;
             setTimeout(printChar, delay);
         } else {
-            print();
+            console.log();
         }
     }
     printChar();
-}
-
-export function len(arg: string | any[]): number {
-    return arg.length;
 }

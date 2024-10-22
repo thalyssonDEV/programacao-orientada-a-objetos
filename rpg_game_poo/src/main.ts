@@ -1,9 +1,22 @@
+import { Mago } from '../sub_classes/Mago'
 import { cores } from '../colors/cores'
 import { PersonagemFactory } from '../classes/PersonagemFactory';
-import { print, clear, input, awaitInput, printOneLine, printSlow, len } from '../utils/utils';
+import { print, clear, input, awaitInput, awaitInputMessage, printSlow} from '../utils/utils';
 
-function menuPrincipal(): void {
-  return;
+// Função temporária que visa mostrar as informações dos atributos dos jogadores
+function mostrarEstatisticas(jogador1, jogador2) {
+    print(`${cores.vermelhoBrilhanteNegrito}================ FIGHT ================${cores.reset}\n`);
+
+    print(` ||${cores.amareloBrilhanteNegrito}${jogador1.nome}: ${cores.verdeBrilhanteNegrito}${jogador1.classeNome}${cores.reset}\n ||`);
+    print(` ||${cores.vermelhoBrilhanteNegrito}ATAQUE:${cores.reset} ${jogador1.ataque}`);
+    print(` ||${cores.verdeBrilhanteNegrito}VIDA:${cores.reset} ${jogador1.vida.toFixed(1)}`);
+    print(` ||${cores.cianoBrilhanteNegrito}DEFESA:${cores.reset} ${jogador1.defesa}\n\n`);
+
+    print(` ||${cores.amareloBrilhanteNegrito}${jogador2.nome}: ${cores.verdeBrilhanteNegrito}${jogador2.classeNome}${cores.reset}\n ||`);
+    print(` ||${cores.vermelhoBrilhanteNegrito}ATAQUE:${cores.reset} ${jogador2.ataque}`);
+    print(` ||${cores.verdeBrilhanteNegrito}VIDA:${cores.reset} ${jogador2.vida.toFixed(1)}`);
+    print(` ||${cores.cianoBrilhanteNegrito}DEFESA:${cores.reset} ${jogador2.defesa}`);
+    print("\n");
 }
 
 function main() {
@@ -35,24 +48,21 @@ function main() {
 
   awaitInput();
 
-  print(`${cores.vermelhoBrilhanteNegrito}================ FIGHT ================${cores.reset}\n`);
-
-  print(` ||${cores.amareloBrilhanteNegrito}${jogador1.nome}: ${cores.verdeBrilhanteNegrito}${jogador1.classeNome}${cores.reset}\n ||`);
-  print(` ||${cores.vermelhoBrilhanteNegrito}ATAQUE:${cores.reset} ${jogador1.ataque}`);
-  print(` ||${cores.verdeBrilhanteNegrito}VIDA:${cores.reset} ${jogador1.vida}`);
-  print(` ||${cores.cianoBrilhanteNegrito}DEFESA:${cores.reset} ${jogador1.defesa}\n\n`);
-
-  print(` ||${cores.amareloBrilhanteNegrito}${jogador2.nome}: ${cores.verdeBrilhanteNegrito}${jogador2.classeNome}${cores.reset}\n ||`);
-  print(` ||${cores.vermelhoBrilhanteNegrito}ATAQUE:${cores.reset} ${jogador2.ataque}`);
-  print(` ||${cores.verdeBrilhanteNegrito}VIDA:${cores.reset} ${jogador2.vida}`);
-  print(` ||${cores.cianoBrilhanteNegrito}DEFESA:${cores.reset} ${jogador2.defesa}`);
-
-  print("\n");
-
   while (jogador1.estaVivo() && jogador2.estaVivo()) {
-    jogador1.atacar(jogador2);
-    jogador2.atacar(jogador1);
+    mostrarEstatisticas(jogador1, jogador2);
+    if (jogador1 instanceof Mago) {
+      jogador1.fireball(jogador2);
     }
+    awaitInputMessage("Pressione ENTER para Finalizar o Turno...");
+    clear();
+
+    if (jogador2.estaVivo()) {
+      mostrarEstatisticas(jogador1, jogador2);
+      jogador2.atacar(jogador1);
+      awaitInputMessage("Pressione ENTER para Finalizar o Turno...");
+      clear();
+    }
+  }
 }
 
 main();
