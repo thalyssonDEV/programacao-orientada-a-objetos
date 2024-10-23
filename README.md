@@ -1,33 +1,36 @@
-# Programação Orientada a Objetos (POO)
+# Estruturas de Dados
 
-Repositório de códigos relacionados à disciplina de Programação Orientada a Objetos do curso de Análise e Desenvolvimento de Sistemas!
+Repositório de códigos relacionados à disciplina de Estruturas de Dados do curso de Análise e Desenvolvimento de Sistemas!
 
 ## 📚 Sobre o Repositório
 
-Este repositório tem como objetivo armazenar e organizar todos os códigos desenvolvidos durante as aulas de POO, utilizando TypeScript. Cada pasta neste repositório representará um projeto diferente, abordando diversos conceitos de POO, como:
+Este repositório tem como objetivo armazenar e organizar todos os códigos desenvolvidos durante as aulas de Estruturas de Dados, utilizando C e C++. Cada pasta neste repositório representará um projeto diferente, abordando diversos conceitos de Estruturas de Dados, como:
 
-- Classes e Objetos
-- Herança
-- Polimorfismo
-- Encapsulamento
-- Interfaces
+- Listas Ligadas
+- Pilhas
+- Filas
+- Árvores
+- Grafos
+- Tabelas Hash
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Linguagem**: TypeScript
-- **Ambiente**: Node.js, qualquer editor de código (VSCode, WebStorm, etc.)
+- **Linguagem**: C e C++
+- **Ambiente**: Clion, VsCode, Eclipse (qualquer editor de código)
+
+## 📁 Estrutura do Repositório
+
+- **listas-ligadas**: Implementações de listas ligadas simples e duplamente ligadas.
+- **pilhas**: Implementações de pilhas com operações básicas.
+- **filas**: Implementações de filas estáticas e dinâmicas.
+- **arvores**: Estruturas de árvores binárias e árvores balanceadas.
+- **grafos**: Representação de grafos e algoritmos de busca.
+- **tabelas-hash**: Implementações de tabelas hash e suas operações.
+
 
 ## 📝 Informações Importantes
 
 - **Instruções de Instalação**:
   1. Clone o repositório:
-   ```textplain
-  https://github.com/thalyssonDEV/programacao-orientada-a-objetos.git
-   ```
-  3. Navegue até a pasta do projeto desejado: `cd programacao-orientada-a-objetos/nome_do_projeto...`
-  4. Instale as dependências (se necessário): `npm install...`
-  5. Execute o projeto:
-  ```textplain
-  tsc main.ts
-  node main.js
-  ```
+   ```bash
+   https://github.com/thalyssonDEV/estruturas-de-dados.git
