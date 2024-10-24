@@ -1,6 +1,5 @@
 import os
 import sys
-
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils')))
 
 from TerminalMessage import TerminalMessage
@@ -21,6 +20,7 @@ class Command:
 
     with open(full_path, "x"):
       pass
+    stdout.success(f"touch: the file '{file_name}' was created successfully.")
 
   def echo(self, attempt_command: str) -> None:
     command = attempt_command.strip().split()
@@ -54,9 +54,9 @@ class Command:
 
     if os.path.isfile(full_path):
       os.remove(full_path)
-      stdout.error(f"rm: '{name_file}' removed successfully")
+      stdout.success(f"rm: '{name_file}' removed successfully")
     else:
-      stdout.success(f'rm: cannot remove {name_file}: No such file or directory')
+      stdout.error(f"rm: cannot remove '{name_file}': No such file or directory")
     
   def help(self) -> None:
     print("Commands:")
