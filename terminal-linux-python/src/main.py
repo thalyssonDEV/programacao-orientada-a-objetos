@@ -6,11 +6,13 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'c
 from Assignments import Assignments
 from Command import Command
 from TerminalMessage import TerminalMessage
+from SuggestionCommand import SuggestionCommand
 
 def main() -> None:
   os.system('clear')
   stdout = TerminalMessage() # Instância da classe TerminalMessage
   terminal = Command() # Intância da classe Command
+  suggest = SuggestionCommand() # Instância da classe SuggestCommand
   
   while True:
     attempt_command = input('> ')
@@ -35,6 +37,8 @@ def main() -> None:
 
       case _:
         command = attempt_command.strip().split()
-        stdout.error(f"'{command[0]}' is not recognized as an internal or external command.")
-          
+        stdout.error(f"{command[0]}: command not found")
+        suggest.suggest_command(command[0])
+
+
 main()
