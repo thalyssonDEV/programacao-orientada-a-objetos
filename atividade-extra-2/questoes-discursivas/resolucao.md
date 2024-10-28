@@ -1,5 +1,3 @@
-# Questões da Aula de POO
-
 ## 1. Identifique o nome do conceito representado pelo texto abaixo:
 - a. É a forma de definir ou controlar a complexidade baseada em características essenciais e pela supressão ou desconsideração de detalhes em orientação a objetos: **Abstração**
 - b. Define que nenhum acesso direto é concedido diretamente aos dados, apenas através de métodos: **Encapsulamento**
