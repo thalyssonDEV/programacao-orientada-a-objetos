@@ -1,4 +1,4 @@
-// 7. Implemente a questão do ControleDeAudio acima em outra linguagem // que não seja TypeScript.
+// 7. Implemente a questão do ControleDeAudio acima em outra linguagem que não seja TypeScript.
 
 #include <iostream>
 #include <string>
