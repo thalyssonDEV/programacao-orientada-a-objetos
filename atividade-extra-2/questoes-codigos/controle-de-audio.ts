@@ -2,9 +2,11 @@
 
 // a. A classe deve ter um atributo inteiro representando o volume inicializado com o valor 2.
 
-// b. Crie um método chamado aumentar volume que incrementa em um o valor atual. O método não deve deixar o valor ficar maior que 10. Utilize um if para isso;
+// b. Crie um método chamado aumentar volume que incrementa em um o valor atual.
+// O método não deve deixar o valor ficar maior que 10. Utilize um if para isso;
 
-// c. Crie um método chamado diminuir volume que decrementa em um o valor atual. O método não deve deixar o valor ficar menor 0.
+// c. Crie um método chamado diminuir volume que decrementa em um o valor atual.
+// O método não deve deixar o valor ficar menor 0.
 
 // d. Crie um método chamado lerVolume que retorna o valor do volume.
 
