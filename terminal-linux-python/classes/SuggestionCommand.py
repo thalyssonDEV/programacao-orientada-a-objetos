@@ -15,7 +15,8 @@ class SuggestionCommand:
             'rm',
             'exit', 
             'clear',
-            'echo'
+            'echo',
+            'mv'
         }
 
     def suggest_command(self, command: str) -> None:

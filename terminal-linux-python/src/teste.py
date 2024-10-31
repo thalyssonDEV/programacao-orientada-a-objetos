@@ -1,31 +1,36 @@
-class SuggestionCommand:
-    def __init__(self) -> None:
-        self.commands_dict = {
-            'touch',
-            'rm',
-            'exit', 
-            'clear',
-            'echo'
-        }
+help_text = """
+Comandos disponíveis:
 
-    def suggest_command(self, attempt_command: str) -> None:
-        command = attempt_command.strip().split()[0]
+  touch <nome_do_arquivo>
+      Cria um novo arquivo com o nome especificado. Exemplo:
+      touch novo_arquivo.txt
 
-        if len(command) < 2:
-            Return None
-        
-        else:
-            matching_commands = [cmd for cmd in self.commands_dict if cmd.startswith(command[:2])]
+  echo <texto> > <nome_do_arquivo>
+      Escreve o texto especificado no arquivo, sobrescrevendo o conteúdo anterior.
+      Exemplo:
+      echo "Olá, mundo!" > arquivo.txt
 
-            
-        
+  echo <texto> >> <nome_do_arquivo>
+      Adiciona o texto especificado ao final do arquivo.
+      Exemplo:
+      echo "Mais uma linha." >> arquivo.txt
 
-        
+  clear
+      Limpa a tela do terminal.
 
+  rm <nome_do_arquivo>
+      Remove o arquivo especificado. Exemplo:
+      rm arquivo.txt
 
-# Exemplo de uso
-suggestion = SuggestionCommand()
-input_command = "cl"  # Exemplo de entrada do usuário
-suggestions = suggestion.suggest_command(input_command)
+  mv <arquivo_antigo> <novo_nome>
+      Renomeia ou move o arquivo especificado para o novo nome. Exemplo:
+      mv arquivo.txt novo_nome.txt
 
-print("Sugestões:", suggestions)
+  exit
+      Sai do terminal.
+
+  help
+      Exibe esta mensagem de ajuda.
+"""
+
+print(help_text)

@@ -22,6 +22,7 @@ class Command:
       pass
     stdout.success(f"touch: the file '{file_name}' was created successfully.")
 
+
   def echo(self, attempt_command: str) -> None:
     command = attempt_command.strip().split()
 
@@ -39,11 +40,14 @@ class Command:
       with open(full_path, 'a') as file:
           file.write(text_to_write + '\n')
 
+
   def clear(self) -> None:
     os.system('clear')
 
+
   def exit(self) -> None:
     exit()
+
 
   def rm(self, attempt_command: str) -> None:
     command = attempt_command.strip().split()
@@ -58,9 +62,16 @@ class Command:
     else:
       stdout.error(f"rm: cannot remove '{name_file}': No such file or directory")
     
-  def help(self) -> None:
-    print("Commands:")
-    print("touch <file_name> - Create a new file")
-    print("echo <file_name> <new_content> - Edit a file")
-    print("exit - Exit the program")
-    print("clear - Clear the screen")
+    
+  def mv(self, attempt_command) -> None:
+    command = attempt_command.strip().split()
+
+    path = '../files/'
+    old_file_path = os.path.join(path, command[1])
+    new_file_path = os.path.join(path, command[2])
+    
+    try:
+      os.rename(old_file_path, new_file_path)
+
+    except FileNotFoundError:
+      stdout.error(f"mv: cannot rename '{command[1]}': No such file or directory")
