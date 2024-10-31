@@ -20,3 +20,6 @@ class Assignments:
 
     elif command[0] == 'exit' and len(command) == 1:
       return 0
+    
+    elif command[0] == 'mv' and len(command) == 3:
+      return 5

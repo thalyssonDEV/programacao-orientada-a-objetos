@@ -1,5 +1,6 @@
 import sys
 import os
+import readline
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'classes')))
 
@@ -15,30 +16,41 @@ def main() -> None:
   suggest = SuggestionCommand() # Instância da classe SuggestCommand
   
   while True:
-    attempt_command = input('> ')
-    code_terminal_command = Assignments.check_command(attempt_command)
-  
-    match code_terminal_command:
-      case 1:
-        terminal.touch(attempt_command)
-        
-      case 2:
-        terminal.clear()
+    try:
+      attempt_command = input('> ')
+      if not attempt_command:
+        continue
 
-      case 3:
-        terminal.echo(attempt_command)
+      readline.add_history(attempt_command)
 
-      case 4:
-        terminal.rm(attempt_command)
 
-      case 0:
-        terminal.clear()
-        terminal.exit()
+      code_terminal_command = Assignments.check_command(attempt_command)
+    
+      match code_terminal_command:
+        case 1:
+          terminal.touch(attempt_command)
+          
+        case 2:
+          terminal.clear()
 
-      case _:
-        command = attempt_command.strip().split()
-        stdout.error(f"{command[0]}: command not found")
-        suggest.suggest_command(command[0])
+        case 3:
+          terminal.echo(attempt_command)
 
+        case 4:
+          terminal.rm(attempt_command)
+
+        case 5:
+          terminal.mv(attempt_command)
+
+        case 0:
+          terminal.exit()
+
+        case _:
+          command = attempt_command.strip().split()
+          stdout.error(f"{command[0]}: command not found")
+          suggest.suggest_command(command[0])
+
+    except KeyboardInterrupt:
+      break
 
 main()
