@@ -23,3 +23,6 @@ class Assignments:
     
     elif command[0] == 'mv' and len(command) == 3:
       return 5
+    
+    elif command[0] == 'help' and len(command) == 1:
+      return 6

@@ -3,7 +3,9 @@ import os
 import readline
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'classes')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'docs')))
 
+from Documentation import Documentation
 from Assignments import Assignments
 from Command import Command
 from TerminalMessage import TerminalMessage
@@ -41,6 +43,9 @@ def main() -> None:
 
         case 5:
           terminal.mv(attempt_command)
+        
+        case 6:
+          Documentation.show_help()
 
         case 0:
           terminal.exit()
