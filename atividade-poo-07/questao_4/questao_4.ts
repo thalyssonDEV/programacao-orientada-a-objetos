@@ -1,5 +1,5 @@
-import * as fs from "fs";
-import * as readlineSync from "readline-sync";
+import * as fs from 'fs';
+import * as readlineSync from 'readline-sync';
 
 class Conta {
     private _id: number;
@@ -130,6 +130,11 @@ function exibirMenu(): void {
     console.log("1. Carregar contas do arquivo");
     console.log("2. Salvar contas no arquivo");
     console.log("3. Listar contas");
+    console.log("4. Adicionar conta");
+    console.log("5. Sacar de uma conta");
+    console.log("6. Depositar em uma conta");
+    console.log("7. Transferir entre contas");
+    console.log("8. Render Juros de Poupança");
     console.log("0. Sair");
 }
 
@@ -137,7 +142,7 @@ function executarMenu(): void {
     let opcao: string;
     do {
         exibirMenu();
-        opcao = readlineSync.question("Escolha uma opcao: ");
+        opcao = readlineSync.question("Escolha uma opção: ");
 
         switch (opcao) {
             case "1":
@@ -149,11 +154,71 @@ function executarMenu(): void {
             case "3":
                 console.log(banco.listarContas());
                 break;
+            case "4":
+                const tipoConta = readlineSync.question("Digite o tipo da conta (C - Comum, CP - Poupança, CI - Conta Imposto): ");
+                const numero = readlineSync.question("Digite o número da conta: ");
+                const saldo = parseFloat(readlineSync.question("Digite o saldo inicial: "));
+                if (tipoConta === "CP") {
+                    const taxaDeJuros = parseFloat(readlineSync.question("Digite a taxa de juros: "));
+                    banco.inserirConta(new Poupanca(numero, saldo, taxaDeJuros));
+                } else if (tipoConta === "CI") {
+                    const taxaDeDesconto = parseFloat(readlineSync.question("Digite a taxa de desconto: "));
+                    banco.inserirConta(new ContaImposto(numero, saldo, taxaDeDesconto));
+                } else {
+                    banco.inserirConta(new Conta(numero, saldo));
+                }
+                break;
+            case "5":
+                const numSacar = readlineSync.question("Digite o número da conta para sacar: ");
+                const valorSacar = parseFloat(readlineSync.question("Digite o valor a ser sacado: "));
+                const contaSacar = banco.listarContas().find(conta => conta.numero === numSacar);
+                if (contaSacar) {
+                    contaSacar.sacar(valorSacar);
+                    console.log(`Saque de R$${valorSacar} realizado com sucesso!`);
+                } else {
+                    console.log("Conta não encontrada.");
+                }
+                break;
+            case "6":
+                const numDepositar = readlineSync.question("Digite o número da conta para depositar: ");
+                const valorDepositar = parseFloat(readlineSync.question("Digite o valor a ser depositado: "));
+                const contaDepositar = banco.listarContas().find(conta => conta.numero === numDepositar);
+                if (contaDepositar) {
+                    contaDepositar.depositar(valorDepositar);
+                    console.log(`Depósito de R$${valorDepositar} realizado com sucesso!`);
+                } else {
+                    console.log("Conta não encontrada.");
+                }
+                break;
+            case "7":
+                const numOrigem = readlineSync.question("Digite o número da conta de origem: ");
+                const numDestino = readlineSync.question("Digite o número da conta de destino: ");
+                const valorTransferir = parseFloat(readlineSync.question("Digite o valor a ser transferido: "));
+                const contaOrigem = banco.listarContas().find(conta => conta.numero === numOrigem);
+                const contaDestino = banco.listarContas().find(conta => conta.numero === numDestino);
+                if (contaOrigem && contaDestino) {
+                    contaOrigem.sacar(valorTransferir);
+                    contaDestino.depositar(valorTransferir);
+                    console.log(`Transferência de R$${valorTransferir} realizada com sucesso!`);
+                } else {
+                    console.log("Uma ou ambas as contas não foram encontradas.");
+                }
+                break;
+            case "8":
+                const numPoupanca = readlineSync.question("Digite o número da conta poupança para render juros: ");
+                const contaPoupanca = banco.listarContas().find(conta => conta.numero === numPoupanca && conta instanceof Poupanca);
+                if (contaPoupanca) {
+                    contaPoupanca.renderJuros();
+                    console.log("Juros rendidos com sucesso!");
+                } else {
+                    console.log("Conta não encontrada ou não é uma poupança.");
+                }
+                break;
             case "0":
                 console.log("Saindo...");
                 break;
             default:
-                console.log("Opcao invalida. Tente novamente.");
+                console.log("Opção inválida. Tente novamente.");
         }
     } while (opcao !== "0");
 }
