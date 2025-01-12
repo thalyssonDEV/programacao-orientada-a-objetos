@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@types/node": "^22.10.5"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "readline-sync": "^1.4.10"
+  }
+}
